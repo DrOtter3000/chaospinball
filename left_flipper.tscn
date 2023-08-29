@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dididwxm2u78a"]
+
+[ext_resource type="Script" path="res://LeftFlipper.gd" id="1_ajrbm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5blri"]
+size = Vector3(10, 3.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_slv1d"]
+size = Vector3(10, 3.5, 1)
+
+[node name="LeftFlipper" type="AnimatableBody3D"]
+script = ExtResource("1_ajrbm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+mesh = SubResource("BoxMesh_5blri")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+shape = SubResource("BoxShape3D_slv1d")

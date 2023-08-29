@@ -2,18 +2,18 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_expu1"]
 friction = 0.0
-bounce = 1.0
+bounce = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u70w4"]
 albedo_color = Color(0.847059, 0, 0.85098, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_ow2fg"]
 material = SubResource("StandardMaterial3D_u70w4")
-radius = 0.01
-height = 0.02
+radius = 1.5
+height = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ftvup"]
-radius = 0.01
+radius = 1.5
 
 [node name="Ball" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_expu1")

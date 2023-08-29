@@ -9,12 +9,11 @@
 transform = Transform3D(1, 0, 0, 0, -0.452793, 0.891616, 0, -0.891616, -0.452793, 0, 3.47943, -1.33161)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.998554, -0.0440411, 0.0308391, -4.72924e-09, 0.573591, 0.819142, -0.0537649, -0.817957, 0.572761, 0, 0.332604, 0.105748)
+transform = Transform3D(-1, -7.16125e-08, 5.01436e-08, 0, 0.573576, 0.819152, -8.74228e-08, 0.819152, -0.573576, 0, 70.7921, -61.5007)
 current = true
 
 [node name="Machine" parent="." instance=ExtResource("1_ytd86")]
 transform = Transform3D(1, 0, 0, 0, 0.951148, 0.308735, 0, -0.308735, 0.951148, 0, 0, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_nb2sy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142755, 0.152723, 0.30988)
-mass = 1.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62106, 4.43002, 0.30988)
