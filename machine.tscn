@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c04wwjxlgl6b6"]
+[gd_scene load_steps=26 format=3 uid="uid://c04wwjxlgl6b6"]
 
 [ext_resource type="PackedScene" uid="uid://dididwxm2u78a" path="res://left_flipper.tscn" id="1_hxrte"]
 [ext_resource type="Script" path="res://machine.gd" id="1_wndql"]
@@ -53,6 +53,13 @@ data = PackedVector3Array(-0.5, 2, 10, 0.5, 2, 10, -0.5, -2, 10, 0.5, 2, 10, 0.5
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tqekk"]
 data = PackedVector3Array(-0.5, 2, 10, 0.5, 2, 10, -0.5, -2, 10, 0.5, 2, 10, 0.5, -2, 10, -0.5, -2, 10, 0.5, 2, -10, -0.5, 2, -10, 0.5, -2, -10, -0.5, 2, -10, -0.5, -2, -10, 0.5, -2, -10, 0.5, 2, 10, 0.5, 2, -10, 0.5, -2, 10, 0.5, 2, -10, 0.5, -2, -10, 0.5, -2, 10, -0.5, 2, -10, -0.5, 2, 10, -0.5, -2, -10, -0.5, 2, 10, -0.5, -2, 10, -0.5, -2, -10, 0.5, 2, 10, -0.5, 2, 10, 0.5, 2, -10, -0.5, 2, 10, -0.5, 2, -10, 0.5, 2, -10, -0.5, -2, 10, 0.5, -2, 10, -0.5, -2, -10, 0.5, -2, 10, 0.5, -2, -10, -0.5, -2, -10)
+
+[sub_resource type="PrismMesh" id="PrismMesh_bgyig"]
+left_to_right = 0.0
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtfv0"]
+size = Vector3(20, 20, 10)
 
 [sub_resource type="Animation" id="Animation_ndqnw"]
 resource_name = "fire"
@@ -191,6 +198,16 @@ mesh = SubResource("BoxMesh_qbe0o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InnerWalls/MeshInstance3D4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tqekk")
 
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="InnerWalls"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -30.9572, 4.57269, 59.5373)
+mesh = SubResource("PrismMesh_bgyig")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InnerWalls/MeshInstance3D5/StaticBody3D"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, -8.35187e-23, 3.41761e-14, 1.35106e-15, 1, -7.38038, -6.71829, -4.76837e-07)
+shape = SubResource("BoxShape3D_wtfv0")
+
 [node name="Flippers" type="Node3D" parent="."]
 
 [node name="LeftFlipper" parent="Flippers" instance=ExtResource("1_hxrte")]
@@ -200,7 +217,7 @@ transform = Transform3D(-0.901833, 0, 0.432086, 0, 1, 0, -0.432086, 0, -0.901833
 transform = Transform3D(0.901833, 0, 0.432086, 0, 1, 0, -0.432086, 0, 0.901833, -12.5, 2.5, -49.25)
 
 [node name="Spring" parent="." instance=ExtResource("4_ewm78")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1941, 2.30151, -69.1073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.194, 2.302, -85)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
