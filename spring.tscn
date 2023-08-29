@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuak2ms6lc7pd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_trx8u"]
+height = 50.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u4j1y"]
+size = Vector3(1, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32a85"]
+size = Vector3(1.5, 1.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cybuj"]
+size = Vector3(1.5, 1.5, 1)
+
+[node name="Spring" type="AnimatableBody3D"]
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_trx8u")
+
+[node name="CylindricShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_u4j1y")
+
+[node name="CubicShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.222)
+shape = SubResource("BoxShape3D_32a85")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.2234)
+mesh = SubResource("BoxMesh_cybuj")

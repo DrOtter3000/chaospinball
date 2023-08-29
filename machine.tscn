@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c04wwjxlgl6b6"]
+[gd_scene load_steps=24 format=3 uid="uid://c04wwjxlgl6b6"]
 
 [ext_resource type="PackedScene" uid="uid://dididwxm2u78a" path="res://left_flipper.tscn" id="1_hxrte"]
+[ext_resource type="Script" path="res://machine.gd" id="1_wndql"]
 [ext_resource type="PackedScene" uid="uid://cj3jo4rnjgm7r" path="res://right_flipper.tscn" id="2_kakdq"]
+[ext_resource type="PackedScene" uid="uid://cuak2ms6lc7pd" path="res://spring.tscn" id="4_ewm78"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g5gc3"]
 size = Vector3(72, 1, 130)
@@ -16,8 +18,8 @@ size = Vector3(72, 1, 130)
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d5tp3"]
-data = PackedVector3Array(-36, 0.5, 65, 36, 0.5, 65, -36, -0.5, 65, 36, 0.5, 65, 36, -0.5, 65, -36, -0.5, 65, 36, 0.5, -65, -36, 0.5, -65, 36, -0.5, -65, -36, 0.5, -65, -36, -0.5, -65, 36, -0.5, -65, 36, 0.5, 65, 36, 0.5, -65, 36, -0.5, 65, 36, 0.5, -65, 36, -0.5, -65, 36, -0.5, 65, -36, 0.5, -65, -36, 0.5, 65, -36, -0.5, -65, -36, 0.5, 65, -36, -0.5, 65, -36, -0.5, -65, 36, 0.5, 65, -36, 0.5, 65, 36, 0.5, -65, -36, 0.5, 65, -36, 0.5, -65, 36, 0.5, -65, -36, -0.5, 65, 36, -0.5, 65, -36, -0.5, -65, 36, -0.5, 65, 36, -0.5, -65, -36, -0.5, -65)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc3jm"]
+size = Vector3(72, 5, 130)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pp606"]
 size = Vector3(1, 10, 130)
@@ -30,6 +32,9 @@ size = Vector3(74, 10, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nnvd0"]
 data = PackedVector3Array(-37, 5, 0.5, 37, 5, 0.5, -37, -5, 0.5, 37, 5, 0.5, 37, -5, 0.5, -37, -5, 0.5, 37, 5, -0.5, -37, 5, -0.5, 37, -5, -0.5, -37, 5, -0.5, -37, -5, -0.5, 37, -5, -0.5, 37, 5, 0.5, 37, 5, -0.5, 37, -5, 0.5, 37, 5, -0.5, 37, -5, -0.5, 37, -5, 0.5, -37, 5, -0.5, -37, 5, 0.5, -37, -5, -0.5, -37, 5, 0.5, -37, -5, 0.5, -37, -5, -0.5, 37, 5, 0.5, -37, 5, 0.5, 37, 5, -0.5, -37, 5, 0.5, -37, 5, -0.5, 37, 5, -0.5, -37, -5, 0.5, 37, -5, 0.5, -37, -5, -0.5, 37, -5, 0.5, 37, -5, -0.5, -37, -5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkxja"]
+size = Vector3(72, 10, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_scjr8"]
 size = Vector3(1, 4, 100)
@@ -49,7 +54,45 @@ data = PackedVector3Array(-0.5, 2, 10, 0.5, 2, 10, -0.5, -2, 10, 0.5, 2, 10, 0.5
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tqekk"]
 data = PackedVector3Array(-0.5, 2, 10, 0.5, 2, 10, -0.5, -2, 10, 0.5, 2, 10, 0.5, -2, 10, -0.5, -2, 10, 0.5, 2, -10, -0.5, 2, -10, 0.5, -2, -10, -0.5, 2, -10, -0.5, -2, -10, 0.5, -2, -10, 0.5, 2, 10, 0.5, 2, -10, 0.5, -2, 10, 0.5, 2, -10, 0.5, -2, -10, 0.5, -2, 10, -0.5, 2, -10, -0.5, 2, 10, -0.5, -2, -10, -0.5, 2, 10, -0.5, -2, 10, -0.5, -2, -10, 0.5, 2, 10, -0.5, 2, 10, 0.5, 2, -10, -0.5, 2, 10, -0.5, 2, -10, 0.5, 2, -10, -0.5, -2, 10, 0.5, -2, 10, -0.5, -2, -10, 0.5, -2, 10, 0.5, -2, -10, -0.5, -2, -10)
 
+[sub_resource type="Animation" id="Animation_ndqnw"]
+resource_name = "fire"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spring:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-34.194, 2.302, -85), Vector3(-34.194, 2.302, -40), Vector3(-34.194, 2.302, -85)]
+}
+
+[sub_resource type="Animation" id="Animation_eh4d8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spring:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-34.1941, 2.30151, -69.1073)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ldbg"]
+_data = {
+"RESET": SubResource("Animation_eh4d8"),
+"fire": SubResource("Animation_ndqnw")
+}
+
 [node name="Machine" type="Node3D"]
+script = ExtResource("1_wndql")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_g5gc3")
@@ -68,7 +111,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ceynb")
 [node name="StaticBody3D" type="StaticBody3D" parent="Cover"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cover/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_d5tp3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73918, 0)
+shape = SubResource("BoxShape3D_lc3jm")
 
 [node name="OuterWalls" type="Node3D" parent="."]
 
@@ -106,7 +150,8 @@ mesh = SubResource("BoxMesh_1k2k2")
 [node name="StaticBody3D" type="StaticBody3D" parent="OuterWalls/MeshInstance3D4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OuterWalls/MeshInstance3D4/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_nnvd0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.91698)
+shape = SubResource("BoxShape3D_qkxja")
 
 [node name="InnerWalls" type="Node3D" parent="."]
 
@@ -153,3 +198,11 @@ transform = Transform3D(-0.901833, 0, 0.432086, 0, 1, 0, -0.432086, 0, -0.901833
 
 [node name="RightFlipper" parent="Flippers" instance=ExtResource("2_kakdq")]
 transform = Transform3D(0.901833, 0, 0.432086, 0, 1, 0, -0.432086, 0, 0.901833, -12.5, 2.5, -49.25)
+
+[node name="Spring" parent="." instance=ExtResource("4_ewm78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1941, 2.30151, -69.1073)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7ldbg")
+}

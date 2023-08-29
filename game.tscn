@@ -16,4 +16,4 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 0.951148, 0.308735, 0, -0.308735, 0.951148, 0, 0, 0)
 
 [node name="Ball" parent="." instance=ExtResource("2_nb2sy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62106, 4.43002, 0.30988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.347, 4.43002, 0.30988)
