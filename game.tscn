@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://7xgf8khctk4d"]
+
+[ext_resource type="PackedScene" uid="uid://c04wwjxlgl6b6" path="res://machine.tscn" id="1_ytd86"]
+[ext_resource type="PackedScene" uid="uid://b1f1mj4r4gt10" path="res://ball.tscn" id="2_nb2sy"]
+
+[node name="Game" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.452793, 0.891616, 0, -0.891616, -0.452793, 0, 3.47943, -1.33161)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.998554, -0.0440411, 0.0308391, -4.72924e-09, 0.573591, 0.819142, -0.0537649, -0.817957, 0.572761, 0, 0.332604, 0.105748)
+current = true
+
+[node name="Machine" parent="." instance=ExtResource("1_ytd86")]
+transform = Transform3D(1, 0, 0, 0, 0.951148, 0.308735, 0, -0.308735, 0.951148, 0, 0, 0)
+
+[node name="Ball" parent="." instance=ExtResource("2_nb2sy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142755, 0.152723, 0.30988)
+mass = 1.0
