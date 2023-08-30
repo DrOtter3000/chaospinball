@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://7xgf8khctk4d"]
+[gd_scene load_steps=4 format=3 uid="uid://7xgf8khctk4d"]
 
+[ext_resource type="Script" path="res://game.gd" id="1_4xxkx"]
 [ext_resource type="PackedScene" uid="uid://c04wwjxlgl6b6" path="res://machine.tscn" id="1_ytd86"]
 [ext_resource type="PackedScene" uid="uid://b1f1mj4r4gt10" path="res://ball.tscn" id="2_nb2sy"]
 
-[node name="Game" type="Node3D"]
+[node name="Game" type="Node3D" groups=["Game"]]
+script = ExtResource("1_4xxkx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.452793, 0.891616, 0, -0.891616, -0.452793, 0, 3.47943, -1.33161)
