@@ -9,7 +9,7 @@ func _ready():
 	normal_position = rotation.y
 
 
-func _physics_process(delta):
+func _process(delta):
 	if Input.is_action_pressed("left"):
 		rotation.y += 0.25
 	else:

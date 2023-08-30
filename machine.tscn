@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://c04wwjxlgl6b6"]
+[gd_scene load_steps=28 format=3 uid="uid://c04wwjxlgl6b6"]
 
 [ext_resource type="PackedScene" uid="uid://dididwxm2u78a" path="res://left_flipper.tscn" id="1_hxrte"]
 [ext_resource type="Script" path="res://machine.gd" id="1_wndql"]
 [ext_resource type="PackedScene" uid="uid://cj3jo4rnjgm7r" path="res://right_flipper.tscn" id="2_kakdq"]
+[ext_resource type="PackedScene" uid="uid://dkasn6282ygmh" path="res://bumper.tscn" id="4_71gy1"]
 [ext_resource type="PackedScene" uid="uid://cuak2ms6lc7pd" path="res://spring.tscn" id="4_ewm78"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g5gc3"]
@@ -64,6 +65,21 @@ size = Vector3(10, 10, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wtfv0"]
 size = Vector3(20, 20, 10)
 
+[sub_resource type="Animation" id="Animation_eh4d8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spring:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-34.194, 2.302, -85)]
+}
+
 [sub_resource type="Animation" id="Animation_ndqnw"]
 resource_name = "fire"
 length = 0.7
@@ -78,21 +94,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-34.194, 2.302, -85), Vector3(-34.194, 2.302, -40), Vector3(-34.194, 2.302, -85)]
-}
-
-[sub_resource type="Animation" id="Animation_eh4d8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spring:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-34.1941, 2.30151, -69.1073)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ldbg"]
@@ -114,7 +115,7 @@ skeleton = NodePath("../OuterWalls")
 shape = SubResource("ConcavePolygonShape3D_dhawj")
 
 [node name="Cover" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.94738, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.83976, 0)
 mesh = SubResource("BoxMesh_5i5et")
 surface_material_override/0 = SubResource("StandardMaterial3D_ceynb")
 
@@ -221,8 +222,28 @@ transform = Transform3D(-0.901833, 0, 0.432086, 0, 1, 0, -0.432086, 0, -0.901833
 [node name="RightFlipper" parent="Flippers" instance=ExtResource("2_kakdq")]
 transform = Transform3D(0.901833, 0, 0.432086, 0, 1, 0, -0.432086, 0, 0.901833, -12.5, 2.5, -49.25)
 
+[node name="Bumpers" type="Node3D" parent="."]
+
+[node name="Bumper" parent="Bumpers" instance=ExtResource("4_71gy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27105, 2.5, 36.4095)
+
+[node name="Bumper2" parent="Bumpers" instance=ExtResource("4_71gy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40332, 2.5, 20.2114)
+
+[node name="Bumper3" parent="Bumpers" instance=ExtResource("4_71gy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2804, 2.5, 20.2114)
+
+[node name="Bumper4" parent="Bumpers" instance=ExtResource("4_71gy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54652, 2.5, 48.1644)
+
+[node name="Bumper5" parent="Bumpers" instance=ExtResource("4_71gy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5673, 2.5, 48.1644)
+
+[node name="Bumper6" parent="Bumpers" instance=ExtResource("4_71gy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8155, 2.5, 35.5789)
+
 [node name="Spring" parent="." instance=ExtResource("4_ewm78")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1941, 2.30151, -69.1073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.194, 2.302, -85)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

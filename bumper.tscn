@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkasn6282ygmh"]
+
+[ext_resource type="Script" path="res://bumper.gd" id="1_0yf68"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ml6b"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ewnfy"]
+top_radius = 3.0
+bottom_radius = 3.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmceu"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ejd32"]
+height = 3.9767
+radius = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8onil"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_37tmw"]
+resource_name = "bump"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.0, 5.0, 3.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:bottom_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.0, 5.0, 3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:mesh:top_radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.0, 5.0, 3.0]
+}
+
+[sub_resource type="Animation" id="Animation_dhwxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:bottom_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:mesh:top_radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fedm2"]
+_data = {
+"RESET": SubResource("Animation_dhwxw"),
+"bump": SubResource("Animation_37tmw")
+}
+
+[node name="Bumper" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_6ml6b")
+script = ExtResource("1_0yf68")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_ewnfy")
+surface_material_override/0 = SubResource("StandardMaterial3D_mmceu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_ejd32")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("CylinderShape3D_8onil")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fedm2")
+}
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
