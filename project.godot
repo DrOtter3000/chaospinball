@@ -15,6 +15,15 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Gamemanager="*res://gamemanager.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [input]
 
 fire={
