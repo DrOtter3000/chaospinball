@@ -17,5 +17,7 @@ current = true
 [node name="Machine" parent="." instance=ExtResource("1_ytd86")]
 transform = Transform3D(1, 0, 0, 0, 0.807063, 0.590465, 0, -0.590465, 0.807063, 0, 0, 0)
 
-[node name="Ball" parent="." instance=ExtResource("2_nb2sy")]
+[node name="BallArray" type="Node" parent="."]
+
+[node name="Ball" parent="BallArray" instance=ExtResource("2_nb2sy")]
 transform = Transform3D(1, 0, 0, 0, 0.804085, -0.594514, 0, 0.594514, 0.804085, -34.347, 4.43002, 0.30988)

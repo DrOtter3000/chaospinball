@@ -8,5 +8,5 @@ func _process(delta):
 
 func _on_game_over_area_body_entered(body):
 	if body.is_in_group("Ball"):
-		get_tree().call_group("Game", "game_over")
+		Gamemanager.game_over()
 		body.queue_free()
