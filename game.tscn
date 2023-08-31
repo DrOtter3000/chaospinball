@@ -6,6 +6,7 @@
 
 [node name="Game" type="Node3D" groups=["Game"]]
 script = ExtResource("1_4xxkx")
+newBall = ExtResource("2_nb2sy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.452793, 0.891616, 0, -0.891616, -0.452793, 0, 3.47943, -1.33161)
@@ -19,5 +20,5 @@ transform = Transform3D(1, 0, 0, 0, 0.807063, 0.590465, 0, -0.590465, 0.807063, 
 
 [node name="BallArray" type="Node" parent="."]
 
-[node name="Ball" parent="BallArray" instance=ExtResource("2_nb2sy")]
-transform = Transform3D(1, 0, 0, 0, 0.804085, -0.594514, 0, 0.594514, 0.804085, -34.347, 4.43002, 0.30988)
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.639, -13.7861, -27.7769)

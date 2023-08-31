@@ -14,6 +14,5 @@ func _process(delta):
 		game_over()
 
 
-
 func game_over():
 	print("Game Over")
