@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://c04wwjxlgl6b6"]
+[gd_scene load_steps=34 format=3 uid="uid://c04wwjxlgl6b6"]
 
 [ext_resource type="PackedScene" uid="uid://dididwxm2u78a" path="res://left_flipper.tscn" id="1_hxrte"]
 [ext_resource type="Script" path="res://machine.gd" id="1_wndql"]
 [ext_resource type="PackedScene" uid="uid://cj3jo4rnjgm7r" path="res://right_flipper.tscn" id="2_kakdq"]
 [ext_resource type="PackedScene" uid="uid://dkasn6282ygmh" path="res://bumper.tscn" id="4_71gy1"]
 [ext_resource type="PackedScene" uid="uid://cuak2ms6lc7pd" path="res://spring.tscn" id="4_ewm78"]
+[ext_resource type="PackedScene" uid="uid://6g0kymrh0ofu" path="res://teleporter_particles.tscn" id="6_r7f3o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g5gc3"]
 size = Vector3(72, 1, 130)
@@ -118,6 +119,7 @@ size = Vector3(62.0959, 10, 5)
 
 [node name="Machine" type="Node3D"]
 script = ExtResource("1_wndql")
+newParticles = ExtResource("6_r7f3o")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_g5gc3")
@@ -286,7 +288,7 @@ shape = SubResource("BoxShape3D_3hjow")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0457, 1.42196, -53.7368)
 shape = SubResource("BoxShape3D_4rxob")
 
-[node name="PortalExits" type="Node" parent="."]
+[node name="PortalExits" type="Node3D" parent="."]
 
 [node name="Marker3D" type="Marker3D" parent="PortalExits"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.49065, 0)

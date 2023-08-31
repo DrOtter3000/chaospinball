@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://6g0kymrh0ofu"]
+
+[ext_resource type="Script" path="res://teleporter_particles.gd" id="1_cuvll"]
+
+[sub_resource type="Curve" id="Curve_04i6w"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_yvah3"]
+curve = SubResource("Curve_04i6w")
+
+[sub_resource type="Curve" id="Curve_alynx"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yqhtg"]
+curve = SubResource("Curve_alynx")
+
+[sub_resource type="Curve" id="Curve_itvec"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_13d27"]
+curve = SubResource("Curve_itvec")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t0m88"]
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 10.0
+angular_velocity_max = 10.0
+linear_accel_max = 10.0
+radial_accel_max = 10.0
+tangential_accel_max = 10.0
+damping_max = 10.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_13d27")
+color = Color(1, 0.0784314, 1, 1)
+turbulence_enabled = true
+anim_speed_max = 5.0
+anim_speed_curve = SubResource("CurveTexture_yqhtg")
+anim_offset_curve = SubResource("CurveTexture_yvah3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6p831"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsl46"]
+next_pass = SubResource("ParticleProcessMaterial_6p831")
+transparency = 1
+albedo_color = Color(0.262745, 1, 1, 0.431373)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yrj6q"]
+material = SubResource("StandardMaterial3D_rsl46")
+
+[node name="TeleporterParticles" type="GPUParticles3D"]
+amount = 60
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_t0m88")
+draw_pass_1 = SubResource("SphereMesh_yrj6q")
+script = ExtResource("1_cuvll")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
