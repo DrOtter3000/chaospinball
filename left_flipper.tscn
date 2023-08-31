@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dididwxm2u78a"]
+[gd_scene load_steps=6 format=3 uid="uid://dididwxm2u78a"]
 
 [ext_resource type="Script" path="res://LeftFlipper.gd" id="1_ajrbm"]
+[ext_resource type="Material" uid="uid://cqta01730ktki" path="res://Materials/PlayerControlledMaterial.tres" id="2_gprn0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bm0s5"]
 friction = 0.0
@@ -19,6 +20,7 @@ script = ExtResource("1_ajrbm")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 mesh = SubResource("BoxMesh_5blri")
+surface_material_override/0 = ExtResource("2_gprn0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0.75)

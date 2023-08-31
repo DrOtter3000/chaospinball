@@ -1,13 +1,21 @@
-[gd_scene load_steps=34 format=3 uid="uid://c04wwjxlgl6b6"]
+[gd_scene load_steps=37 format=3 uid="uid://c04wwjxlgl6b6"]
 
 [ext_resource type="PackedScene" uid="uid://dididwxm2u78a" path="res://left_flipper.tscn" id="1_hxrte"]
 [ext_resource type="Script" path="res://machine.gd" id="1_wndql"]
 [ext_resource type="PackedScene" uid="uid://cj3jo4rnjgm7r" path="res://right_flipper.tscn" id="2_kakdq"]
+[ext_resource type="Material" uid="uid://cqaph26w1ojss" path="res://Materials/WallsInsideMaterial.tres" id="3_caw26"]
+[ext_resource type="Material" uid="uid://bnsl44aucpwus" path="res://Materials/WallsOutsideMaterial.tres" id="3_j38wv"]
 [ext_resource type="PackedScene" uid="uid://dkasn6282ygmh" path="res://bumper.tscn" id="4_71gy1"]
 [ext_resource type="PackedScene" uid="uid://cuak2ms6lc7pd" path="res://spring.tscn" id="4_ewm78"]
 [ext_resource type="PackedScene" uid="uid://6g0kymrh0ofu" path="res://teleporter_particles.tscn" id="6_r7f3o"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8gbs"]
+albedo_color = Color(0.670588, 0.54902, 0.580392, 1)
+uv1_scale = Vector3(-0.015, -0.015, -0.015)
+uv1_triplanar_sharpness = 6.9644
+
 [sub_resource type="BoxMesh" id="BoxMesh_g5gc3"]
+material = SubResource("StandardMaterial3D_y8gbs")
 size = Vector3(72, 1, 130)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ge5dd"]
@@ -147,6 +155,7 @@ shape = SubResource("BoxShape3D_lc3jm")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OuterWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 4.5, 0)
 mesh = SubResource("BoxMesh_pp606")
+surface_material_override/0 = ExtResource("3_j38wv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OuterWalls/MeshInstance3D"]
 
@@ -157,6 +166,7 @@ shape = SubResource("BoxShape3D_l64kb")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="OuterWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5, 4.5, 0)
 mesh = SubResource("BoxMesh_pp606")
+surface_material_override/0 = ExtResource("3_j38wv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OuterWalls/MeshInstance3D2"]
 
@@ -167,6 +177,7 @@ shape = SubResource("BoxShape3D_r61d0")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="OuterWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -65)
 mesh = SubResource("BoxMesh_1k2k2")
+surface_material_override/0 = ExtResource("3_j38wv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OuterWalls/MeshInstance3D3"]
 
@@ -176,6 +187,7 @@ shape = SubResource("ConcavePolygonShape3D_nnvd0")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="OuterWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 65)
 mesh = SubResource("BoxMesh_1k2k2")
+surface_material_override/0 = ExtResource("3_j38wv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="OuterWalls/MeshInstance3D4"]
 
@@ -188,6 +200,7 @@ shape = SubResource("BoxShape3D_qkxja")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="InnerWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2.5, 3.80594)
 mesh = SubResource("BoxMesh_scjr8")
+surface_material_override/0 = ExtResource("3_caw26")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D3"]
 
@@ -197,6 +210,7 @@ shape = SubResource("ConcavePolygonShape3D_4qo8o")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="InnerWalls"]
 transform = Transform3D(0.422618, 0, -0.906308, 0, 1, 0, 0.906308, 0, 0.422618, -22, 2.5, -44.7431)
 mesh = SubResource("BoxMesh_qbe0o")
+surface_material_override/0 = ExtResource("3_caw26")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D2"]
 
@@ -206,6 +220,7 @@ shape = SubResource("ConcavePolygonShape3D_wiaop")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="InnerWalls"]
 transform = Transform3D(0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, 0.422618, 22, 2.5, -44.7431)
 mesh = SubResource("BoxMesh_qbe0o")
+surface_material_override/0 = ExtResource("3_caw26")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D4"]
 
@@ -215,6 +230,7 @@ shape = SubResource("ConcavePolygonShape3D_tqekk")
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="InnerWalls"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -30.9572, 4.57269, 59.5373)
 mesh = SubResource("PrismMesh_bgyig")
+surface_material_override/0 = ExtResource("3_caw26")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D5"]
 
@@ -225,6 +241,7 @@ shape = SubResource("BoxShape3D_wtfv0")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InnerWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 2.5, -14.9142)
 mesh = SubResource("BoxMesh_g0wm1")
+surface_material_override/0 = ExtResource("3_caw26")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D"]
 
@@ -234,6 +251,7 @@ shape = SubResource("ConcavePolygonShape3D_jsxbq")
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="InnerWalls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 32.5507, 2.5, -57.1506)
 mesh = SubResource("PrismMesh_4u43y")
+surface_material_override/0 = ExtResource("3_caw26")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InnerWalls/MeshInstance3D6"]
 

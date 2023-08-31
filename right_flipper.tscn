@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj3jo4rnjgm7r"]
+[gd_scene load_steps=6 format=3 uid="uid://cj3jo4rnjgm7r"]
 
 [ext_resource type="Script" path="res://right_flipper.gd" id="1_a5elk"]
+[ext_resource type="Material" uid="uid://cqta01730ktki" path="res://Materials/PlayerControlledMaterial.tres" id="2_lilnj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cvfg4"]
 friction = 0.0
@@ -23,3 +24,4 @@ shape = SubResource("BoxShape3D_neuii")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 mesh = SubResource("BoxMesh_a7xbt")
+surface_material_override/0 = ExtResource("2_lilnj")
