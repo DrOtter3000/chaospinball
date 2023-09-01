@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpm11pff06y0f"]
+
+[ext_resource type="Material" uid="uid://dlvp0sax67iw1" path="res://Materials/ChaoticStuffMaterial.tres" id="1_ssmlv"]
+[ext_resource type="Script" path="res://triangle_of_fun.gd" id="1_yg8lc"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e284v"]
+data = PackedVector3Array(0, 5, 2, 5, -5, 2, -5, -5, 2, 0, 5, -2, -5, -5, -2, 5, -5, -2, 0, 5, 2, 0, 5, -2, 5, -5, 2, 0, 5, -2, 5, -5, -2, 5, -5, 2, 0, 5, -2, 0, 5, 2, -5, -5, -2, 0, 5, 2, -5, -5, 2, -5, -5, -2, -5, -5, 2, 5, -5, 2, -5, -5, -2, 5, -5, 2, 5, -5, -2, -5, -5, -2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_h4u73"]
+material = ExtResource("1_ssmlv")
+size = Vector3(10, 10, 4)
+
+[node name="TriangleOfFun" type="StaticBody3D"]
+script = ExtResource("1_yg8lc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_e284v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_h4u73")
+
+[node name="PointArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PointArea"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_e284v")
+
+[connection signal="body_entered" from="PointArea" to="." method="_on_point_area_body_entered"]

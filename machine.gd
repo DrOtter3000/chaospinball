@@ -27,3 +27,16 @@ func teleport_particles(pos):
 	var particles = newParticles.instantiate()
 	add_child(particles)
 	particles.position = pos
+
+
+func _on_timer_timeout():
+	var change_status = randi_range(0,2)
+	print(change_status)
+	if change_status == 1:
+		$TriangleOfFun.scale = Vector3(1,1,1)
+		$TriangleOfFun.rotate_y(randi_range(-180, 180))
+	if change_status == 2:
+		$TriangleOfFun.scale = Vector3(1,1,1)
+		$TriangleOfFun.position.x = randi_range(-15, 15)
+	else:
+		$TriangleOfFun.scale = Vector3.ZERO
