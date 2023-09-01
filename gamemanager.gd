@@ -7,7 +7,6 @@ var balls = 0
 
 func add_points(value):
 	points += value
-	print(points)
 	get_tree().call_group("GUI", "update_LblPoints")
 
 

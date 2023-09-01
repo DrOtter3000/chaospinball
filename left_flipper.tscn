@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dididwxm2u78a"]
+[gd_scene load_steps=7 format=3 uid="uid://dididwxm2u78a"]
 
 [ext_resource type="Script" path="res://LeftFlipper.gd" id="1_ajrbm"]
 [ext_resource type="Material" uid="uid://cqta01730ktki" path="res://Materials/PlayerControlledMaterial.tres" id="2_gprn0"]
+[ext_resource type="PackedScene" uid="uid://s835v40rep4h" path="res://point_cube_area.tscn" id="3_if7p8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bm0s5"]
 friction = 0.0
@@ -25,3 +26,7 @@ surface_material_override/0 = ExtResource("2_gprn0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0.75)
 shape = SubResource("BoxShape3D_slv1d")
+
+[node name="PointCubeArea" parent="." instance=ExtResource("3_if7p8")]
+transform = Transform3D(10, 0, 0, 0, 3.5, 0, 0, 0, 1, 5.00011, 0, -1.00881)
+points = 25

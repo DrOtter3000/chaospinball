@@ -46,4 +46,4 @@ right={
 
 [physics]
 
-common/physics_ticks_per_second=600
+common/physics_ticks_per_second=400
