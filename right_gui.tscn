@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv2jh4utocnfe"]
+
+[ext_resource type="Script" path="res://right_gui.gd" id="1_6tmaf"]
+[ext_resource type="FontFile" uid="uid://b05abb6xberv3" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_s72nc"]
+
+[node name="RightGUI" type="Node3D" groups=["GUI"]]
+script = ExtResource("1_6tmaf")
+
+[node name="LblPoints" type="Label3D" parent="."]
+pixel_size = 0.1
+text = "Points: 0"
+font = ExtResource("1_s72nc")
+font_size = 64
+outline_size = 10
+
+[node name="LblBalls" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+pixel_size = 0.1
+text = "Balls left: 0"
+font = ExtResource("1_s72nc")
+font_size = 64
