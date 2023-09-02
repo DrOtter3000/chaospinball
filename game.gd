@@ -4,10 +4,11 @@ extends Node3D
 @export var newBall :PackedScene
 
 
-func _ready():
-	spawn_ball()
-	for ball in $BallArray.get_children():
-		Gamemanager.balls += 1
+func _input(event):
+	if event.is_action_pressed("newball") and Gamemanager.balls_ready > 0:
+		Gamemanager.remove_ball()
+		spawn_ball()
+
 
 
 func spawn_ball():

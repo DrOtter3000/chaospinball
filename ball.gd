@@ -2,4 +2,5 @@ extends RigidBody3D
 
 
 func _ready():
-	pass
+	Gamemanager.balls += 1
+	print(Gamemanager.balls)

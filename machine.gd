@@ -9,9 +9,10 @@ func _process(delta):
 		$SpringPlayer.play("fire")
 
 
-func _on_game_over_area_body_entered(body):
+func _on_ball_lost_area_body_entered(body):
 	if body.is_in_group("Ball"):
-		Gamemanager.game_over()
+		Gamemanager.balls -= 1
+		print(Gamemanager.balls)
 		body.queue_free()
 
 
