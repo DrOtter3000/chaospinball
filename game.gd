@@ -4,6 +4,11 @@ extends Node3D
 @export var newBall :PackedScene
 
 
+func ready():
+	print("ready")
+	get_tree().call_group("GUI", "update_LblBalls")
+
+
 func _input(event):
 	if event.is_action_pressed("newball") and Gamemanager.balls_ready > 0:
 		Gamemanager.remove_ball()
