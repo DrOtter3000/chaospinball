@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://brfxxhs2obgip"]
+[gd_scene load_steps=7 format=3 uid="uid://brfxxhs2obgip"]
 
 [ext_resource type="FontFile" uid="uid://b05abb6xberv3" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_4ud2x"]
 [ext_resource type="Script" path="res://menu.gd" id="1_xeo2s"]
 [ext_resource type="Texture2D" uid="uid://cpewsbg4fpxnj" path="res://GFX/Gunnar.jpg" id="2_duh7j"]
+[ext_resource type="Texture2D" uid="uid://bb0oa3ku4s5u7" path="res://GFX/credits.png" id="4_ostqt"]
 
 [sub_resource type="Theme" id="Theme_hbv7x"]
 default_font = ExtResource("1_4ud2x")
@@ -78,6 +79,23 @@ text = "Start Game"
 layout_mode = 2
 theme = SubResource("Theme_na1hp")
 text = "Quit Game"
+
+[node name="TextRectCredits" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 120.0
+offset_right = 1832.0
+offset_bottom = 1200.0
+pivot_offset = Vector2(912, 1384)
+texture = ExtResource("4_ostqt")
+
+[node name="LblVersion" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1808.0
+offset_top = 1048.0
+offset_right = 1894.0
+offset_bottom = 1074.0
+text = "Version 1.0"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BtnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BtnStart2" to="." method="_on_btn_start_2_pressed"]
