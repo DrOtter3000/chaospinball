@@ -4,8 +4,7 @@ extends Node3D
 @export var newBall :PackedScene
 
 
-func ready():
-	print("ready")
+func _ready():
 	get_tree().call_group("GUI", "update_LblBalls")
 
 
