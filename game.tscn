@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7xgf8khctk4d"]
+[gd_scene load_steps=6 format=3 uid="uid://7xgf8khctk4d"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_4xxkx"]
 [ext_resource type="PackedScene" uid="uid://c04wwjxlgl6b6" path="res://machine.tscn" id="1_ytd86"]
 [ext_resource type="PackedScene" uid="uid://b1f1mj4r4gt10" path="res://ball.tscn" id="2_nb2sy"]
 [ext_resource type="PackedScene" uid="uid://cv2jh4utocnfe" path="res://right_gui.tscn" id="4_0ustj"]
+[ext_resource type="AudioStream" uid="uid://ccbd044rxj6ko" path="res://SFX/Soundtrack.mp3" id="5_ny2pc"]
 
 [node name="Game" type="Node3D" groups=["Game"]]
 script = ExtResource("1_4xxkx")
@@ -26,3 +27,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.639, -13.7861, -27.7769)
 
 [node name="RightGUI" parent="." instance=ExtResource("4_0ustj")]
 transform = Transform3D(-1, -5.16324e-08, 7.05467e-08, 0, 0.80696, 0.590606, -8.74228e-08, 0.590606, -0.80696, -76.4691, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ny2pc")
+volume_db = -10.0
+autoplay = true
