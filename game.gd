@@ -14,7 +14,6 @@ func _input(event):
 		spawn_ball()
 
 
-
 func spawn_ball():
 	var ball = newBall.instantiate()
 	get_node("BallArray").add_child(ball)

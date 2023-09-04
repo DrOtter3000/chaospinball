@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://brfxxhs2obgip"]
+[gd_scene load_steps=6 format=3 uid="uid://brfxxhs2obgip"]
 
 [ext_resource type="FontFile" uid="uid://b05abb6xberv3" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_4ud2x"]
 [ext_resource type="Script" path="res://menu.gd" id="1_xeo2s"]
+[ext_resource type="Texture2D" uid="uid://cpewsbg4fpxnj" path="res://GFX/Gunnar.jpg" id="2_duh7j"]
 
 [sub_resource type="Theme" id="Theme_hbv7x"]
 default_font = ExtResource("1_4ud2x")
-default_font_size = 128
+default_font_size = 192
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_na1hp"]
@@ -21,12 +22,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xeo2s")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_duh7j")
+
 [node name="LblHeading" type="Label" parent="."]
 layout_mode = 0
-offset_left = 64.0
 offset_top = 64.0
-offset_right = 1216.0
-offset_bottom = 192.0
+offset_right = 1920.0
+offset_bottom = 236.0
 theme = SubResource("Theme_hbv7x")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -35,11 +44,12 @@ horizontal_alignment = 1
 
 [node name="LblSubtitle" type="Label" parent="."]
 layout_mode = 0
-offset_top = 200.0
-offset_right = 1272.0
-offset_bottom = 226.0
+offset_top = 256.0
+offset_right = 1920.0
+offset_bottom = 312.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
 text = "Chaos can be boring too... and boring can be annoying too"
 horizontal_alignment = 1
 
@@ -49,9 +59,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 64.0
-offset_top = 192.0
+offset_top = 320.0
 offset_right = -64.0
-offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -15,6 +15,7 @@ func _process(delta):
 	if global_position.y < -100:
 		Gamemanager.balls_ready += 1
 		get_tree().call_group("GUI", "update_LblBalls")
+		Gamemanager.balls -= 1
 		queue_free()
 
 
