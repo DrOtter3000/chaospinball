@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb7rmovygmqp7"]
+
+[ext_resource type="FontFile" uid="uid://b05abb6xberv3" path="res://Fonts/VCR_OSD_MONO.ttf" id="1_g55k6"]
+
+[node name="LeftGUI" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+pixel_size = 0.1
+text = "Controls:
+
+Fire: 
+Space
+
+Left Flipper: 
+A, Left Arrow
+
+Right Flipper: 
+D, Left Arrow
+
+New Ball: 
+E, Enter"
+font = ExtResource("1_g55k6")
+font_size = 64
+outline_size = 10
