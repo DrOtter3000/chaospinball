@@ -11,6 +11,13 @@ func _ready():
 	print(Gamemanager.balls)
 
 
+func _process(delta):
+	if global_position.y < -100:
+		Gamemanager.balls_ready += 1
+		get_tree().call_group("GUI", "update_LblBalls")
+		queue_free()
+
+
 func _on_area_3d_body_entered(body):
 	var random_boring_sound = sound_array[randi_range(0, sound_array.size()-1)]
 	$AudioStreamPlayer.stream = load(random_boring_sound)
