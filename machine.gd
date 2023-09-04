@@ -3,6 +3,7 @@ extends Node3D
 
 @export var newParticles :PackedScene
 var warp_array = ["res://SFX/Warp_Sounds/Warp_1.mp3", "res://SFX/Warp_Sounds/Warp_2.mp3", "res://SFX/Warp_Sounds/Warp_3.mp3", "res://SFX/Warp_Sounds/Warp_4.mp3", "res://SFX/Warp_Sounds/Warp_5.mp3", "res://SFX/Warp_Sounds/Warp_6.mp3"]
+var ohno_array = ["res://SFX/OhNo_Sounds/OhNo_1.mp3", "res://SFX/OhNo_Sounds/OhNo_2.mp3", "res://SFX/OhNo_Sounds/OhNo_3.mp3", "res://SFX/OhNo_Sounds/OhNo_4.mp3", "res://SFX/OhNo_Sounds/OhNo_5.mp3", "res://SFX/OhNo_Sounds/OhNo_6.mp3", "res://SFX/OhNo_Sounds/OhNo_7.mp3"]
 
 
 func _process(delta):
@@ -11,10 +12,13 @@ func _process(delta):
 
 
 func _on_ball_lost_area_body_entered(body):
+	var random_ohno = ohno_array[randi_range(0, ohno_array.size() -1)]
 	if body.is_in_group("Ball"):
 		Gamemanager.balls -= 1
 		print(Gamemanager.balls)
 		body.queue_free()
+		$AudioStreamPlayer.stream = load(random_ohno)
+		$AudioStreamPlayer.play()
 
 
 func _on_area_3d_body_entered(body):

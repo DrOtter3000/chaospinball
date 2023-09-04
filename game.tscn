@@ -12,7 +12,7 @@ script = ExtResource("1_4xxkx")
 newBall = ExtResource("2_nb2sy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.452793, 0.891616, 0, -0.891616, -0.452793, 0, 3.47943, -1.33161)
+transform = Transform3D(1, 0, 0, 0, -0.452793, 0.891616, 0, -0.891616, -0.452793, 0, 121.799, -61.6484)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, -7.16126e-08, 5.01436e-08, -2.8919e-08, 0.812256, 0.583301, -8.25011e-08, 0.583301, -0.812256, 0, 36.5571, -78.452)

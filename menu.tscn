@@ -38,6 +38,8 @@ layout_mode = 0
 offset_top = 200.0
 offset_right = 1272.0
 offset_bottom = 226.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "Chaos can be boring too... and boring can be annoying too"
 horizontal_alignment = 1
 
