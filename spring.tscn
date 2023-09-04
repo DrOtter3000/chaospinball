@@ -9,7 +9,7 @@ height = 50.0
 size = Vector3(1, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_32a85"]
-size = Vector3(1.5, 1.5, 1)
+size = Vector3(2.55351, 2.33701, 2.23083)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cybuj"]
 size = Vector3(1.5, 1.5, 1)
@@ -25,7 +25,7 @@ surface_material_override/0 = ExtResource("1_8llph")
 shape = SubResource("BoxShape3D_u4j1y")
 
 [node name="CubicShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.222)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.484)
 shape = SubResource("BoxShape3D_32a85")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
