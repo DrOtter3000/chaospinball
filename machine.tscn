@@ -373,5 +373,7 @@ libraries = {
 "": SubResource("AnimationLibrary_4l7gr")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="BallLostArea" to="." method="_on_ball_lost_area_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

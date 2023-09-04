@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ball.gd" id="2_k8exe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5kbsj"]
-friction = 0.0
+friction = 0.1
 bounce = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u70w4"]
