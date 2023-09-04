@@ -33,6 +33,14 @@ theme_override_constants/outline_size = 10
 text = "Chaos Pinball"
 horizontal_alignment = 1
 
+[node name="LblSubtitle" type="Label" parent="."]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 1272.0
+offset_bottom = 226.0
+text = "Chaos can be boring too... and boring can be annoying too"
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
