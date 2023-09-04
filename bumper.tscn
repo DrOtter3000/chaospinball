@@ -128,4 +128,6 @@ libraries = {
 "": SubResource("AnimationLibrary_fedm2")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
